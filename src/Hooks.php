@@ -22,7 +22,7 @@ namespace MediaWiki\Extension\ParsoidReadViews;
 use Article;
 use ParserOptions;
 
-class Hooks implements \MediaWiki\Hook\ArticleParserOptionsHook {
+class Hooks implements \MediaWiki\Page\Hook\ArticleParserOptionsHook {
 
 	/**
 	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ArticleParserOptions
