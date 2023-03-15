@@ -17,21 +17,26 @@
  * @file
  */
 
-namespace MediaWiki\Extension\BoilerPlate;
+namespace MediaWiki\Extension\ParsoidReadViews;
 
-class Hooks implements \MediaWiki\Hook\BeforePageDisplayHook {
+use Article;
+use ParserOptions;
+
+class Hooks implements \MediaWiki\Hook\ArticleParserOptionsHook {
 
 	/**
-	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/BeforePageDisplay
-	 * @param \OutputPage $out
-	 * @param \Skin $skin
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/ArticleParserOptions
+	 * @param Article $article
+	 * @param ParserOptions $popts
+	 * @return bool|void
 	 */
-	public function onBeforePageDisplay( $out, $skin ): void {
-		$config = $out->getConfig();
-		if ( $config->get( 'BoilerPlateVandalizeEachPage' ) ) {
-			$out->addModules( 'oojs-ui-core' );
-			$out->addHTML( \Html::element( 'p', [], 'BoilerPlate was here' ) );
+	public function onArticleParserOptions(
+		Article $article, ParserOptions $popts
+	) {
+		$config = $article->getContext()->getConfig();
+		if ( $config->get( 'ParsoidReadViewsEnable' ) ) {
+			$popts->setUseParsoid();
 		}
+		return true;
 	}
-
 }

@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Your Name"
+			"C. Scott Ananian <cananian@wikimedia.org>"
 		]
 	},
-	"boilerplate-desc": "This is an example extension"
+	"parsoidreadviews-desc": "This extension enables Parsoid Read Views."
 }

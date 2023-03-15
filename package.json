@@ -1,5 +1,5 @@
 {
-	"name": "BoilerPlate",
+	"name": "ParsoidReadViews",
 	"private": true,
 	"scripts": {
 		"test": "grunt test"
